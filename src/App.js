@@ -1,9 +1,26 @@
 import './App.css';
 import * as React from 'react';
-import { Container, ListItemButton, ListItemText } from '@mui/material';
-import Typography from '@mui/material/Typography';
+import {useEffect, useState} from "react";
+import { Box, Paper, Button, TextField, Container, ListItemButton, ListItemText } from '@mui/material';
+import {getUser, createUser, updateUser} from "./api";
+
 
 function App() {
+  const [user, setUser] = useState();
+
+  useEffect(async () => {
+    setUser(await getUser());
+  }, [setUser]);
+
+  const onSave = async () => {
+    if (!user) {
+      await createUser(user);
+    } else {
+      await updateUser(user);
+    }
+  };
+
+
   return (
     <section className="App">
 
@@ -18,7 +35,42 @@ function App() {
         <h1>Guide to Simon Duncan</h1>
 
         <div className="metadata">
-          <ListItemButton component="a" href="">
+
+        <Paper
+          elevation={2}
+          sx={{
+            p: 3,
+            display: "grid",
+            gridGap: 20,
+          }}
+        >
+          <TextField
+            label="Name"
+            onChange={(e) => setUser({ ...user, name: e.target.value })}
+          />
+
+          <TextField
+            label="Role"
+            onChange={(e) => setUser({ ...user, role: e.target.value })}
+          />
+
+          <TextField
+            label="Location"
+            onChange={(e) => setUser({ ...user, location: e.target.value })}
+          />
+
+          <Button variant="contained" size="large" fullWidth onClick={onSave}>
+            Save
+          </Button>
+        </Paper>
+    
+        <Box sx={{ display: "flex", flexDirection: "column", mb: 2 }}>
+            {/* <h2>Heya, I'm {user.name}</h2>
+            <span>My role is: {user.role}</span>
+            <span>I am located here: {user.location}</span> */}
+          </Box>
+
+          {/* <ListItemButton component="a" href="">
             <ListItemText primary="Product Design (Adoption &amp; Growth"/>
           </ListItemButton>
 
@@ -28,7 +80,7 @@ function App() {
 
           <ListItemButton component="a" href="https://time.is/Madison" target="blank">
             <ListItemText primary="Central Time"/>
-          </ListItemButton>
+          </ListItemButton> */}
         </div> 
         
         <section className="bodyContent">
