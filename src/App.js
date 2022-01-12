@@ -1,8 +1,15 @@
 import './App.css';
 import * as React from 'react';
-import {useEffect, useState} from "react";
-import { Box, Paper, Button, TextField, Container, ListItemButton, ListItemText } from '@mui/material';
-import {getUser, createUser, updateUser} from "./api";
+import { useEffect, useState } from "react";
+import {
+  Box,
+  CssBaseline,
+  Container,
+  TextField,
+  Button,
+  Paper,
+} from "@mui/material";
+import { getUser, createUser, updateUser } from "./api";
 
 
 function App() {
@@ -19,7 +26,6 @@ function App() {
       await updateUser(user);
     }
   };
-
 
   return (
     <section className="App">
