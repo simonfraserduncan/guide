@@ -71,9 +71,9 @@ function App() {
         </Paper>
     
         <Box sx={{ display: "flex", flexDirection: "column", mb: 2 }}>
-            {/* <h2>Heya, I'm {user.name}</h2>
+            <h2>Heya, I'm {user.name}</h2>
             <span>My role is: {user.role}</span>
-            <span>I am located here: {user.location}</span> */}
+            <span>I am located here: {user.location}</span>
           </Box>
 
           {/* <ListItemButton component="a" href="">
