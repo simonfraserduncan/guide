@@ -84,7 +84,7 @@ function App() {
             <ListItemText primary="Colorado, USA"/>
           </ListItemButton>
 
-          <ListItemButton component="a" href="https://time.is/Madison" target="blank">
+          <ListItemButton>
             <ListItemText primary="Central Time"/>
           </ListItemButton> */}
         </div> 
