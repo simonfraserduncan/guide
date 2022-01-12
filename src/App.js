@@ -3,7 +3,6 @@ import * as React from 'react';
 import { useEffect, useState } from "react";
 import {
   Box,
-  CssBaseline,
   Container,
   TextField,
   Button,
@@ -13,6 +12,7 @@ import { getUser, createUser, updateUser } from "./api";
 
 
 function App() {
+
   const [user, setUser] = useState();
 
   useEffect(async () => {
@@ -36,12 +36,18 @@ function App() {
       
       <Container maxWidth="sm">
         
-        <h2 className="emoji">&#127929;</h2>
-
-        <h1>Guide to Simon Duncan</h1>
 
         <div className="metadata">
 
+      
+        {user && (
+          <Box sx={{ display: "flex", flexDirection: "column", mb: 2 }}>
+            <span style={{ fontSize: 100 }}>🎹</span>
+            <h2>Hello! I'm {user.name}</h2>
+            <span>I'm a {user.role}</span>
+            <span>I live in {user.location}</span>
+          </Box>
+        )}
         <Paper
           elevation={2}
           sx={{
@@ -69,12 +75,7 @@ function App() {
             Save
           </Button>
         </Paper>
-    
-        <Box sx={{ display: "flex", flexDirection: "column", mb: 2 }}>
-            <h2>Heya, I'm {user.name}</h2>
-            <span>My role is: {user.role}</span>
-            <span>I am located here: {user.location}</span>
-          </Box>
+
 
           {/* <ListItemButton component="a" href="">
             <ListItemText primary="Product Design (Adoption &amp; Growth"/>
@@ -206,3 +207,4 @@ function App() {
 
 
 export default App;
+
