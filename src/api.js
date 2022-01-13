@@ -1,5 +1,5 @@
 const getUser = async () => {
-    const response = await fetch(`/.netlify/functions/getUser`);
+    const response = await fetch("/.netlify/functions/getUser");
     const res = await response.json();
     return res ? res.data.user : {};
   };
