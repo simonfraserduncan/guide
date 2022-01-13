@@ -49,7 +49,7 @@ function App() {
           </Box>
         )}
         <Paper
-          elevation={2}
+          elevation={3}
           sx={{
             p: 3,
             display: "grid",
